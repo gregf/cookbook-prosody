@@ -1,0 +1,15 @@
+.bundle
+.config
+.yardoc
+*.lock
+_yardoc
+coverage
+doc/
+lib/bundler/man
+spec/reports
+test/tmp
+test/version_tmp
+tmp
+.kitchen
+*.sw?
+*~
