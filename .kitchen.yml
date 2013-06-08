@@ -24,11 +24,7 @@ suites:
 - name: default
   run_list:
   - recipe[prosody]
+  - recipe[prosody-test]
   - recipe[minitest-handler]
-  data_bags_path: 'data_bags'
   attributes:
-    prosody:
-      vhost:
-        - foo.com
-        - bar.im
 

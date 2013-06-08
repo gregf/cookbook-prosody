@@ -17,17 +17,18 @@
 # limitations under the License.
 #
 
-default['prosody']['admins'] = %w[]
 default['prosody']['use_libevent'] = true
 default['prosody']['allow_registration'] = false
 default['prosody']['c2s_require_encryption'] = true
 default['prosody']['s2s_secure_auth'] = true
+default['prosody']['s2s_insecure_domains'] = %w[]
+default['prosody']['s2s_secure_domains'] = %w[]
 default['prosody']['authentication'] = "internal_plain"
 default['prosody']['package'] = 'prosody-0.9'
-default['prosody']['libevent_package'] = 'libevent-1.4'
-default['prosody']['data_bag'] = 'prosody'
+default['prosody']['libevent_package'] = 'liblua5.1-event0'
 default['prosody']['storage'] = 'internal'
-default['prosody']['vhost'] = %w[ ]
+default['prosody']['vhosts_dir'] = '/etc/prosody/vhosts.d'
+default['prosody']['pidfile'] = '/var/run/prosody/prosody.pid'
 
 # For more information http://prosody.im/doc/modules_enabled
 default['prosody']['modules_enabled'] = %w[ roster saslauth tls dialback disco

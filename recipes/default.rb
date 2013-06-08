@@ -17,6 +17,8 @@
 # limitations under the License.
 #
 
+include_recipe 'apt'
+
 # add the prosody repo; grab key from keyserver
 apt_repository "prosody.im" do
   uri "http://packages.prosody.im/debian"
@@ -31,6 +33,13 @@ end
 
 package node['prosody']['package']
 
+directory node['prosody']['vhosts_dir'] do
+    owner "root"
+    group "root"
+    mode "0755"
+    action :create
+end
+
 template "/etc/prosody/prosody.cfg.lua" do
   source "prosody.cfg.lua.erb"
   owner "root"
@@ -42,14 +51,4 @@ service "prosody" do
   supports :status => true, :restart => true, :reload => true
   action [:enable, :start]
   subscribes :reload, resources("template[/etc/prosody/prosody.cfg.lua]"), :immediately
-end
-
-users = data_bag(node['prosody']['data_bag'])
-
-users.each do |user|
-  user = data_bag_item('prosody', user)
-
-  execute "prosodctl create user #{user}" do
-    command "prosodyctl register #{user['id']} #{user['vhost']} #{user['password']}"
-  end
 end
