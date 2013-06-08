@@ -27,6 +27,10 @@ apt_repository "prosody.im" do
   key "http://prosody.im/files/prosody-debian-packages.key"
 end
 
+if node['prosody']['s2s_secure_auth'] then
+  package node['prosody']['luasec_package']
+end
+
 if node['prosody']['use_libevent'] then
   package node['prosody']['libevent_package']
 end

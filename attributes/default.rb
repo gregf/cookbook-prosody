@@ -26,6 +26,7 @@ default['prosody']['s2s_secure_domains'] = %w[]
 default['prosody']['authentication'] = "internal_plain"
 default['prosody']['package'] = 'prosody-0.9'
 default['prosody']['libevent_package'] = 'liblua5.1-event0'
+default['prosody']['luasec_package'] = 'lua-sec-prosody'
 default['prosody']['storage'] = 'internal'
 default['prosody']['vhosts_dir'] = '/etc/prosody/vhosts.d'
 default['prosody']['pidfile'] = '/var/run/prosody/prosody.pid'
