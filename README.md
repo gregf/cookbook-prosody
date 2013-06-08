@@ -63,6 +63,9 @@ You can read more about storage options [here](http://prosody.im/doc/storage). W
 ###libevent_package
 This sets the required package when `libevent` is set to true. Defaults to liblua5.1-event0.
 
+###luasec_package
+This sets the required package when 's2s_secure_auth` is set to true. Defaults to lua-sec-prosody.
+
 ###vhosts_dir
 The prosody_vhost lwrp  uses this directory to store individual configuration files for virtualhosts. Defaults to /etc/prosody/vhosts.d.
 
