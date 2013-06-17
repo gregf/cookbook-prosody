@@ -6,7 +6,6 @@ The default recipe will install and configure [Prosody](http://prosody.im) xmpp 
 
 The cookbook also provides a Chef LWRP to manage user accounts and virtualhosts.
 
-* Opscode Community Site: http://community.opscode.com/cookbooks/prosody
 * Source Code: http://github.com/gregf/cookbook-prosody
 
 ##Requirements
