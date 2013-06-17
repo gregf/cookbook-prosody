@@ -21,18 +21,13 @@ default['prosody']['use_libevent'] = true
 default['prosody']['allow_registration'] = false
 default['prosody']['c2s_require_encryption'] = true
 default['prosody']['s2s_secure_auth'] = true
-default['prosody']['s2s_insecure_domains'] = %w[]
-default['prosody']['s2s_secure_domains'] = %w[]
+default['prosody']['s2s_insecure_domains'] = []
+default['prosody']['s2s_secure_domains'] = []
 default['prosody']['authentication'] = "internal_plain"
 default['prosody']['package'] = 'prosody-0.9'
 default['prosody']['libevent_package'] = 'liblua5.1-event0'
 default['prosody']['luasec_package'] = 'lua-sec-prosody'
 default['prosody']['storage'] = 'internal'
-default['prosody']['conf_dir'] = '/etc/prosody'
-default['prosody']['conf_file'] = ::File.join(node['prosody']['conf_dir'], 'prosody.cfg.lua')
-default['prosody']['vhosts_dir'] = ::File.join(node['prosody']['conf_dir'], 'vhosts.d')
-default['prosody']['ssl_dir'] = ::File.join(node['prosody']['conf_dir'], 'certs')
-default['prosody']['pidfile'] = '/var/run/prosody/prosody.pid'
 
 # For more information http://prosody.im/doc/modules
 default['prosody']['modules_enabled'] = [
@@ -62,6 +57,12 @@ default['prosody']['modules_enabled'] = [
   #"bosh", # Enable BOSH clients, aka "Jabber over HTTP"
   #"httpserver", # Serve static files from a directory over HTTP
 ]
+
+default['prosody']['conf_dir'] = '/etc/prosody'
+default['prosody']['conf_file'] = ::File.join(node['prosody']['conf_dir'], 'prosody.cfg.lua')
+default['prosody']['vhosts_dir'] = ::File.join(node['prosody']['conf_dir'], 'vhosts.d')
+default['prosody']['ssl_dir'] = ::File.join(node['prosody']['conf_dir'], 'certs')
+default['prosody']['pidfile'] = '/var/run/prosody/prosody.pid'
 
 # Rest of the -subj values are defaulted to your vhost
 default['ssl']['country'] = "NL"
