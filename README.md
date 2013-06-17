@@ -101,17 +101,22 @@ This sets the default location of the pid file to /var/run/prosody/prosody.pid. 
     <tr>
       <td>admins</td>
       <td>Add admin users for the virtual host</td>
-      <td>&nbsp;</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <td>ssl</td>
+      <td>Generates a self signed ssl certificate for the vhost</td>
+      <td>True</td>
     </tr>
     <tr>
       <td>modules_enabled</td>
       <td>Enable a custom set of modules to load for the virtual host</td>
-      <td>&nbsp;</td>
+      <td>[]</td>
     </tr>
     <tr>
       <td>enabled</td>
       <td>Enable or Disable the virtual host</td>
-      <td>true</td>
+      <td>True</td>
     </tr>
   </tbody>
 </table>
@@ -129,6 +134,7 @@ prosody_vhost 'redneck.im'
 prosody_vhost 'redneck.im' do
   admins %w[jimbob@redneck.im]
   modules_enabled %w[dialback roster saslauth]
+  ssl true
   enabled true
 end
 ```
