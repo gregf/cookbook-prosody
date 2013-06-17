@@ -8,11 +8,13 @@ include_recipe 'prosody'
 prosody_vhost 'redneck.im' do
   admins %w[jimbob@redneck.im daryl@redneck.im]
   modules_enabled %w[dialback roster saslauth]
+  ssl true
   enabled true
 end
 
 prosody_vhost 'example.com' do
   admins %w[root@example.com]
+  ssl false
   enabled false
 end
 
