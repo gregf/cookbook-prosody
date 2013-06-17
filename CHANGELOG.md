@@ -4,6 +4,7 @@
 
 * Generate self signed certs for virtual hosts through the lwrp
 * Many ruby style fixes
+* Use Mixlib::Shellout, Chef::Mixin::Shellout is deprecated.
 
 ## Bug Fixes
 
