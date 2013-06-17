@@ -23,7 +23,7 @@
 <% unless node['prosody']['admins'].nil? %>
 admins = {
 <% node['prosody']['admins'].each do |admin| %>
-  <%= %Q{"#{admin}",} %>
+  "<%= admin %>",
 <% end %>
 }
 <% end %>
@@ -38,7 +38,7 @@ use_libevent = <%= node['prosody']['use_libevent'] %>;
 <% unless node['prosody']['modules_enabled'].empty? %>
 modules_enabled = {
 <% node['prosody']['modules_enabled'].each do |mod| %>
-  <%= %Q{"#{mod}";} %>
+  "<%= mod %>";
 <% end %>
 };
 <% end %>
@@ -85,7 +85,7 @@ s2s_secure_auth = <%= node['prosody']['s2s_secure_auth'] %>
 <% unless node['prosody']['s2s_insecure_domains'].empty? %>
 s2s_insecure_domains = {
 <% node['prosody']['s2s_insecure_domains'].each do |domain| %>
-  <%= %Q{"#{domain}",} %>
+  "<%= domain %>",
 <% end %>
 }
 <% end %>
@@ -94,7 +94,7 @@ s2s_insecure_domains = {
 <% unless node['prosody']['s2s_secure_domains'].empty? %>
 s2s_secure_domains = {
 <% node['prosody']['s2s_secure_domains'].each do |domain| %>
-  <%= %Q{"#{domain}",} %>
+  "<%= domain %>",
 <% end %>
 }
 <% end %>

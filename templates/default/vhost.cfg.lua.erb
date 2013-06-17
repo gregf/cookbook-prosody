@@ -12,7 +12,7 @@ VirtualHost "<%= @config['vhost'] %>"
 <% unless @config['admins'].empty? %>
   admins = {
   <% @config['admins'].each do |admin| %>
-    <%= %Q{"#{admin}",} %>
+    "<%= admin %>",
   <% end %>
   }
 <% end %>
@@ -20,7 +20,7 @@ VirtualHost "<%= @config['vhost'] %>"
 <% unless @config['modules_enabled'].empty? %>
   modules_enabled = {
   <% @config['modules_enabled'].each do |mod| %>
-    <%= %Q{"#{mod}";} %>
+    "<%= mod %>";
   <% end %>
   }
 <% end %>
