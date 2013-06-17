@@ -72,7 +72,23 @@ The prosody_vhost lwrp  uses this directory to store individual configuration fi
 ###pidfile
 This sets the default location of the pid file to /var/run/prosody/prosody.pid. This is a required setting for mod_posix, which allows the daemon to detach.
 
+###conf_dir
+This is the default configuration directory prosody uses for it's configuration. Defaults to `/etc/prosody`
 
+###vhosts_dir
+This is the default directory where configuration files for each virtual host is tored. Defaults to `/etc/prosody/vhosts.d`
+
+###ssl_dir
+The default location where generated certificates are read from. Defaults to `/etc/prosody/certs`
+
+###ssl_country
+The default country used when generating self signed certificates for your virtual hosts. Defaults to `NL`
+
+###ssl_state
+The default state or province used when generating self signed certificates for your virtual hosts. Defaults to `NH`
+
+###ssl_city
+The default city used when generating self signed certificates for your virtual hosts. Defaults to `AMS`
 
 ##Resources & Providers
 
@@ -96,7 +112,7 @@ This sets the default location of the pid file to /var/run/prosody/prosody.pid. 
     <tr>
       <td>remove</td>
       <td>Remove the user virtual host</td>
-      <td>&nbsp;</td>
+      <td>False</td>
     </tr>
     <tr>
       <td>admins</td>
@@ -166,7 +182,7 @@ end
     <tr>
       <td>remove</td>
       <td>Remove the user from a virtual host</td>
-      <td>&nbsp;</td>
+      <td>False</td>
     </tr>
     <tr>
       <td>password</td>
