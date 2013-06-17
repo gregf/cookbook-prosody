@@ -5,11 +5,11 @@ require 'minitest/spec'
 
 describe_recipe 'prosody::default' do
   it "ensures prosody is installed" do
-    package("prosody-0.9").must_be_installed
+    package(node['prosody']['package']).must_be_installed
   end
 
   it "ensures a config file is present" do
-    file('/etc/prosody/prosody.cfg.lua').must_exist
+    file(node['prosody']['conf_file']).must_exist
   end
 
   it "ensures prosody is running" do
