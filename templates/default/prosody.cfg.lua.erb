@@ -20,13 +20,13 @@
 -- for the server. Note that you must create the accounts separately
 -- (see http://prosody.im/doc/creating_accounts for info)
 -- Example: admins = { "user1@example.com", "user2@example.net" }
-<% unless node['prosody']['admins'].nil? %>
+<% unless node['prosody']['admins'].nil? -%>
 admins = {
-<% node['prosody']['admins'].each do |admin| %>
+<% node['prosody']['admins'].each do |admin| -%>
   "<%= admin %>",
-<% end %>
+<% end -%>
 }
-<% end %>
+<% end -%>
 
 -- Enable use of libevent for better performance under high load
 -- For more information see: http://prosody.im/doc/libevent
@@ -35,13 +35,13 @@ use_libevent = <%= node['prosody']['use_libevent'] %>;
 -- This is the list of modules Prosody will load on startup.
 -- It looks for mod_modulename.lua in the plugins folder, so make sure that exists too.
 -- Documentation on modules can be found at: http://prosody.im/doc/modules
-<% unless node['prosody']['modules_enabled'].empty? %>
+<% unless node['prosody']['modules_enabled'].empty? -%>
 modules_enabled = {
-<% node['prosody']['modules_enabled'].each do |mod| %>
+<% node['prosody']['modules_enabled'].each do |mod| -%>
   "<%= mod %>";
-<% end %>
+<% end -%>
 };
-<% end %>
+<% end -%>
 
 
 -- Required for init scripts and prosodyctl
@@ -82,22 +82,22 @@ s2s_secure_auth = <%= node['prosody']['s2s_secure_auth'] %>
 -- Many servers don't support encryption or have invalid or self-signed
 -- certificates. You can list domains here that will not be required to
 -- authenticate using certificates. They will be authenticated using DNS.
-<% unless node['prosody']['s2s_insecure_domains'].empty? %>
+<% unless node['prosody']['s2s_insecure_domains'].empty? -%>
 s2s_insecure_domains = {
-<% node['prosody']['s2s_insecure_domains'].each do |domain| %>
+<% node['prosody']['s2s_insecure_domains'].each do |domain| -%>
   "<%= domain %>",
-<% end %>
+<% end -%>
 }
-<% end %>
+<% end -%>
 -- Even if you leave s2s_secure_auth disabled, you can still require valid
 -- certificates for some domains by specifying a list here.
-<% unless node['prosody']['s2s_secure_domains'].empty? %>
+<% unless node['prosody']['s2s_secure_domains'].empty? -%>
 s2s_secure_domains = {
-<% node['prosody']['s2s_secure_domains'].each do |domain| %>
+<% node['prosody']['s2s_secure_domains'].each do |domain| -%>
   "<%= domain %>",
-<% end %>
+<% end -%>
 }
-<% end %>
+<% end -%>
 
 -- Select the authentication backend to use. The 'internal' providers
 -- use Prosody's configured data storage to store the authentication data.
