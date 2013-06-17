@@ -8,10 +8,10 @@ version          '0.1.0'
 
 recipe 'prosody', 'Installs sudo and configures prosody'
 
-%w{ apt }.each do |dep|
+%w{apt}.each do |dep|
   depends dep
 end
 
-%w{ debian ubuntu centos }.each do |os|
+%w{debian ubuntu}.each do |os|
   supports os
 end
