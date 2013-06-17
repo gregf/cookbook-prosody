@@ -17,9 +17,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-require 'chef/mixin/shell_out'
-require 'chef/mixin/language'
-include Chef::Mixin::ShellOut
+include Chef::Prosody::Helpers
 
 def whyrun_supported?
   true
