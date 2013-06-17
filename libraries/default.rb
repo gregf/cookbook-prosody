@@ -1,7 +1,7 @@
 #
 # Author:: Greg Fitzgerald <greg@gregf.org>
 # Cookbook Name:: prosody
-# Library:: default 
+# Library:: default
 #
 # Copyright 2013, Greg Fitzgerald
 #

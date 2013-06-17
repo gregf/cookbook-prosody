@@ -31,7 +31,7 @@ action :create do
     cmd = "prosodyctl register #{new_resource.username} #{vhost} #{new_resource.password}"
     Chef::Log.debug(cmd)
     shell_out!(cmd)
-    Chef::Log.info("User created")
+    Chef::Log.info('User created')
   end
   new_resource.updated_by_last_action(true)
 end
@@ -42,7 +42,7 @@ action :remove do
     cmd = "prosodyctl deluser #{new_resource.username}@#{vhost}"
     Chef::Log.debug(cmd)
     shell_out!(cmd)
-    Chef::Log.info("User remove")
+    Chef::Log.info('User remove')
   end
   new_resource.updated_by_last_action(true)
 end

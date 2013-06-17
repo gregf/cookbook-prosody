@@ -28,11 +28,11 @@ end
 action :create do
   Chef::Log.info "Adding #{vhost} to #{node['prosody']['vhosts_dir']}"
   template vhost_config_file do
-    source "vhost.cfg.lua.erb"
-    cookbook "prosody"
-    owner "root"
-    group "root"
-    mode "0644"
+    source 'vhost.cfg.lua.erb'
+    cookbook 'prosody'
+    owner 'root'
+    group 'root'
+    mode '0644'
     variables({
       'config' => {
         'vhost' => new_resource.vhost,
@@ -43,7 +43,7 @@ action :create do
       }
     })
     generate_ssl if new_resource.ssl
-    notifies :reload, "service[prosody]"
+    notifies :reload, 'service[prosody]'
   end
   new_resource.updated_by_last_action(true)
 end
@@ -53,7 +53,7 @@ action :remove do
     Chef::Log.info "Removing #{vhost} from #{node['prosody']['vhosts_dir']}"
     file vhost_config_file do
       action :delete
-      notifies :reload, "service[prosody]"
+      notifies :reload, 'service[prosody]'
     end
     remove_ssl
     new_resource.updated_by_last_action(true)

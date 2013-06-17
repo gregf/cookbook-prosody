@@ -19,49 +19,44 @@
 
 include_recipe 'apt'
 
-# add the prosody repo; grab key from keyserver
-apt_repository "prosody.im" do
-  uri "http://packages.prosody.im/debian"
+# add the prosody repo and grab key from keyserver
+apt_repository 'prosody.im' do
+  uri 'http://packages.prosody.im/debian'
   distribution node['lsb']['codename']
-  components ["main"]
-  key "http://prosody.im/files/prosody-debian-packages.key"
+  components ['main']
+  key 'http://prosody.im/files/prosody-debian-packages.key'
 end
 
-if node['prosody']['s2s_secure_auth'] then
-  package node['prosody']['luasec_package']
-end
-
-if node['prosody']['use_libevent'] then
-  package node['prosody']['libevent_package']
-end
+package node['prosody']['luasec_package'] if node['prosody']['s2s_secure_auth']
+package node['prosody']['libevent_package'] if node['prosody']['use_libevent']
 
 package node['prosody']['package'] do
   action :install
 end
 
 directory node['prosody']['vhosts_dir'] do
-  owner "root"
-  group "root"
-  mode "0755"
+  owner 'root'
+  group 'root'
+  mode '0755'
   action :create
 end
 
 directory node['prosody']['ssl_dir'] do
-  owner "root"
-  group "root"
-  mode "0755"
+  owner 'root'
+  group 'root'
+  mode '0755'
   action :create
 end
 
 template node['prosody']['conf_file'] do
-  source "prosody.cfg.lua.erb"
-  owner "root"
-  group "root"
-  mode "0644"
+  source 'prosody.cfg.lua.erb'
+  owner 'root'
+  group 'root'
+  mode '0644'
 end
 
-service "prosody" do
+service 'prosody' do
   supports :status => true, :restart => true, :reload => true
   action [:enable, :start]
-  subscribes :reload, resources("template[/etc/prosody/prosody.cfg.lua]"), :immediately
+  subscribes :reload, resources('template[/etc/prosody/prosody.cfg.lua]'), :immediately
 end
