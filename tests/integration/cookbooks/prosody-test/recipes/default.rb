@@ -46,4 +46,3 @@ end
 prosody_vhost 'flyfisher.com' do
   action :remove
 end
-

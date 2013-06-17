@@ -40,19 +40,19 @@ package node['prosody']['package'] do
 end
 
 directory node['prosody']['vhosts_dir'] do
-    owner "root"
-    group "root"
-    mode "0755"
-    recursive true
-    action :create
+  owner "root"
+  group "root"
+  mode "0755"
+  recursive true
+  action :create
 end
 
 directory node['prosody']['ssl_dir'] do
-    owner "root"
-    group "root"
-    mode "0755"
-    recursive true
-    action :create
+  owner "root"
+  group "root"
+  mode "0755"
+  recursive true
+  action :create
 end
 
 template node['prosody']['conf_file'] do
