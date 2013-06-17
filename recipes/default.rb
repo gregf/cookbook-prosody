@@ -35,16 +35,27 @@ if node['prosody']['use_libevent'] then
   package node['prosody']['libevent_package']
 end
 
-package node['prosody']['package']
+package node['prosody']['package'] do
+  action :install
+end
 
 directory node['prosody']['vhosts_dir'] do
     owner "root"
     group "root"
     mode "0755"
+    recursive true
     action :create
 end
 
-template "/etc/prosody/prosody.cfg.lua" do
+directory node['prosody']['ssl_dir'] do
+    owner "root"
+    group "root"
+    mode "0755"
+    recursive true
+    action :create
+end
+
+template node['prosody']['conf_file'] do
   source "prosody.cfg.lua.erb"
   owner "root"
   group "root"

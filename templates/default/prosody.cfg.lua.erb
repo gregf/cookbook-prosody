@@ -50,9 +50,9 @@ pidfile = "<%= node['prosody']['pidfile'] %>"
 -- These modules are auto-loaded, but should you want
 -- to disable them then uncomment them here:
 modules_disabled = {
-	-- "offline"; -- Store offline messages
-	-- "c2s"; -- Handle client connections
-	-- "s2s"; -- Handle server-to-server connections
+  -- "offline"; -- Store offline messages
+  -- "c2s"; -- Handle client connections
+  -- "s2s"; -- Handle server-to-server connections
 };
 
 -- Disable account creation by default, for security
@@ -62,8 +62,8 @@ allow_registration = <%= node['prosody']['allow_registration'] %>
 -- These are the SSL/TLS-related settings. If you don't want
 -- to use SSL/TLS, you may comment or remove this
 ssl = {
-	key = "certs/localhost.key";
-	certificate = "certs/localhost.crt";
+  key = "certs/localhost.key";
+  certificate = "certs/localhost.crt";
 }
 
 -- Force clients to use encrypted connections? This option will
@@ -125,10 +125,10 @@ storage = "<%= node['prosody']['storage'] %>"
 -- Logging configuration
 -- For advanced logging see http://prosody.im/doc/logging
 log = {
-	info = "/var/log/prosody/prosody.log"; -- Change 'info' to 'debug' for verbose logging
-	error = "/var/log/prosody/prosody.err";
-	-- "*syslog"; -- Uncomment this for logging to syslog
-	-- "*console"; -- Log to the console, useful for debugging with daemonize=false
+  info = "/var/log/prosody/prosody.log"; -- Change 'info' to 'debug' for verbose logg$
+  error = "/var/log/prosody/prosody.err";
+  -- "*syslog"; -- Uncomment this for logging to syslog
+  -- "*console"; -- Log to the console, useful for debugging with daemonize=false
 }
 
 ----------- Virtual hosts -----------
@@ -157,4 +157,4 @@ Include "vhosts.d/*.lua"
 -- see: http://prosody.im/doc/components#adding_an_external_component
 --
 --Component "gateway.example.com"
---	component_secret = "password"
+--  component_secret = "password"
