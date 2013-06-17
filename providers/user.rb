@@ -28,7 +28,8 @@ end
 action :create do
   new_resource.vhosts.each do |vhost|
     Chef::Log.info "Create user #{new_resource.username}@#{vhost}"
-    cmd = "prosodyctl register #{new_resource.username} #{vhost} #{new_resource.password}"
+    cmd = "prosodyctl register #{new_resource.username}"
+    cmd << " #{vhost} #{new_resource.password}"
     Chef::Log.debug(cmd)
     shell_out!(cmd)
     Chef::Log.info('User created')

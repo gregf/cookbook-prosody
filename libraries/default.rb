@@ -22,11 +22,14 @@ private
 def generate_ssl
   unless File.exist?("#{cert_name}.crt") && File.exist?("#{cert_name}.key")
     Chef::Log.info "Generating vhost for #{vhost}"
-    cmd = %Q{openssl req -new -x509 -days 3650 -nodes -sha1 -subj "#{subj}" \
-          -out "#{cert_name}.crt" -newkey rsa:2048 -keyout "#{cert_name}.key"}
-    Chef::Log.debug(cmd)
-    shell_out!(cmd)
+    Chef::Log.debug(ssl_cmd)
+    shell_out!(ssl_cmd)
   end
+end
+
+def ssl_cmd
+  cmd = "openssl req -new -x509 -days 3650 -nodes -sha1 -subj #{subj} "
+  cmd << " -out #{cert_name}.crt -newkey rsa:2048 -keyout #{cert_name}.key"
 end
 
 def remove_ssl
@@ -48,9 +51,7 @@ def cert_name
 end
 
 def subj
-  subj = <<-EOS
-/C=#{node['ssl']['country']}/ST=#{node['ssl']['state']}\
-/L=#{node['ssl']['city']}/O=#{vhost}/OU=#{vhost}\
-/CN=#{vhost}/emailAddress=root@#{vhost}
-EOS
+  subj = "/C=#{node['ssl']['country']}/ST=#{node['ssl']['state']}"
+  subj << "/L=#{node['ssl']['city']}/O=#{vhost}/OU=#{vhost}"
+  subj << "/CN=#{vhost}/emailAddress=root@#{vhost}"
 end

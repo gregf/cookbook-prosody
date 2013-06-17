@@ -32,8 +32,8 @@ default['prosody']['storage'] = 'internal'
 # For more information http://prosody.im/doc/modules
 default['prosody']['modules_enabled'] = [
   # Generally required
-  'roster', # Allow users to have a roster. Recommended ,)
-  'saslauth', # Authentication for clients and servers. Recommended if you want to log in.
+  'roster', # Allow users to have a roster. Recommended
+  'saslauth', # Authentication for clients and servers.
   'tls', # Add support for secure TLS on c2s/s2s connections
   'dialback', # s2s dialback support
   'disco', # Service discovery
@@ -52,7 +52,7 @@ default['prosody']['modules_enabled'] = [
 
   # Other specific functionality
   'pep', # PEP support (tune, mood, actvity, ..)
-  'posix', # POSIX functionality, sends server to background, enables syslog, etc.
+  'posix', # POSIX functionality, sends server to background, enables syslog
   # 'console', # telnet to port 5582 (needs console_enabled = true)
   # 'bosh', # Enable BOSH clients, aka 'Jabber over HTTP'
   # 'httpserver', # Serve static files from a directory over HTTP
