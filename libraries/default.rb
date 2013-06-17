@@ -47,5 +47,5 @@ def cert_name
 end
 
 def subj
-  "/C=#{node[:ssl][:country]}/ST=#{node[:ssl][:state]}/L=#{node[:ssl][:city]}/O=#{vhost}/OU=#{node[:ssl][:depart]}/CN=#{vhost}/emailAddress=root@#{vhost}"
+  "/C=#{node['ssl']['country']}/ST=#{node['ssl']['state']}/L=#{node['ssl']['city']}/O=#{vhost}/OU=#{node['ssl']['depart']}/CN=#{vhost}/emailAddress=root@#{vhost}"
 end
