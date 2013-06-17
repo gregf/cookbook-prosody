@@ -66,6 +66,9 @@ This sets the required package when `libevent` is set to true. Defaults to liblu
 ###luasec_package
 This sets the required package when 's2s_secure_auth` is set to true. Defaults to lua-sec-prosody.
 
+###modules_enabled
+This is an array of default modules that are loaded. See `attributes/default.rb` for default values. Vist [here](http://prosody.im/doc/modules) for a complete list of modules, and what they do.
+
 ###vhosts_dir
 The prosody_vhost lwrp  uses this directory to store individual configuration files for virtualhosts. Defaults to /etc/prosody/vhosts.d.
 
